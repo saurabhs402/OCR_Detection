@@ -12,6 +12,9 @@ const App = () => {
 
   const handleFileUpload = async (imageFile) => {
      console.log(imageFile);
+
+     let identification_number,name,last_name,date_of_birth,date_of_issue,date_of_expiry;
+     let result;
      try {
 
     const apiUrl = 'https://api.ocr.space/parse/image';
@@ -28,7 +31,6 @@ const App = () => {
     });
     console.log(response.data);
     console.log("hiiiiii")
-    const data=response.data;
     const {ParsedResults}=response.data;
 
     const ocrText=ParsedResults[0].ParsedText;
@@ -55,13 +57,11 @@ const App = () => {
     "identification_number": splitText[0],
     "name": splitText[1].replace('Name ',''),
     "last_name": splitText[2].replace('Last Name ',''),
-    "date-of-birth": splitText[3].replace('Date of Birth ',''),
-    "date-of-issue": splitText[4],
-    "date-of-expiry": splitText[5]
+    "date_of_birth": splitText[3].replace('Date of Birth ',''),
+    "date_of_issue": splitText[4],
+    "date_of_expiry": splitText[5]
     }
-
-
-
+    result=OcrResult;
 
       setTimeout(() => {
       setJsonData(OcrResult);
@@ -69,14 +69,30 @@ const App = () => {
       setHistory([...history, "Success: OCR operation completed"]);
     }, 2000);
     // Handle the response from the server as needed
+  console.log("Outside try result",result);
+
+  const {identification_number,name,last_name,date_of_birth,date_of_issue,date_of_expiry}=result;
+
+  console.log(identification_number+" "+date_of_birth);
+   // Sending request to server
+  const res=await axios.post("http://localhost:5000/users",{
+    headers: {
+        'Content-Type': 'application/json',
+      },
+    body:JSON.stringify({identification_number,name,last_name,date_of_birth,date_of_issue,date_of_expiry})
+  })
+
+  // const res=;
+  console.log(res)
+
   } catch (error) {
     console.error('Error uploading image:', error);
     // Handle errors
   }
 
+  
 
-    // Perform OCR operation here with the file and set jsonData state
-    // Simulating OCR operation completion for demonstration purposes
+
    
   };
 

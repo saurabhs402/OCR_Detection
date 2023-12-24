@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors'); // Import the cors middleware
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -32,15 +33,22 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
+// Enable CORS for all routes
+app.use(cors());
 app.use(express.json());
 
 // Example route to create a new user
 app.post('/users', async (req, res) => {
   try {
-    console.log(req.body)
+    console.log("Printing request")
+    console.log(req.body.body)
+    console.log("typeof" + typeof req.body.body)
+    const result=JSON.parse(req.body.body)
+    console.log(result)
+    console.log("Request Printed")
     // const {identification_number,name,last_name,date_of_birth,date_of_issue,date_of_expiry}=req.body;
     // res.json({message:req.body})
-    const newUser = await User.create(req.body);
+    const newUser = await User.create(result);
     newUser.save()
     .then(()=>{ res.status(201).json({message:newUser}) })
     .catch((err)=>{res.status(500).json({error:"failed to store"})})
