@@ -1,12 +1,16 @@
+const dotenv=require("dotenv")
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors'); // Import the cors middleware
+dotenv.config({ path:'../.env'}) 
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
+
+
 
 // MongoDB Atlas connection string (replace with your own connection string)
-const mongoURI = 'mongodb+srv://saurabh:saurabh@cluster0.swkrhj8.mongodb.net/OCR-detect?retryWrites=true&w=majority';
+const mongoURI = process.env.MONGO_URI;
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=> console.log("Connection successful"))
@@ -42,13 +46,22 @@ app.post('/users', async (req, res) => {
   try {
     console.log("Printing request")
     console.log(req.body.body)
-    console.log("typeof" + typeof req.body.body)
+    console.log("typeof " + typeof req.body.body)
     const result=JSON.parse(req.body.body)
     console.log(result)
     console.log("Request Printed")
-    // const {identification_number,name,last_name,date_of_birth,date_of_issue,date_of_expiry}=req.body;
+    const identification_number=result.identification_number;
+    console.log("ID ",identification_number)
     // res.json({message:req.body})
+    
+
+   const existingUser = await User.findOne({ identification_number });
+    if (existingUser) {
+      return res.status(400).json({ error: 'User with the same identification number already exists' });
+    }
+
     const newUser = await User.create(result);
+
     newUser.save()
     .then(()=>{ res.status(201).json({message:newUser}) })
     .catch((err)=>{res.status(500).json({error:"failed to store"})})
@@ -58,6 +71,35 @@ app.post('/users', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
+app.get('/getUsers',(req,res)=>{
+  // t fetch entire data
+  User.find()
+  .then(users=>res.json(users))
+  .catch(err=>res.json(err))
+
+})
+
+app.delete('/:id', async (req, res) => {
+  const userId = req.params.id;
+
+  try {
+    // Check if the user with the given ID exists
+    const existingUser = await User.findById(userId);
+    if (!existingUser) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Delete the user from the database
+    await User.findByIdAndDelete(userId);
+
+    res.json({ message: 'User deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting user:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 
 // Start the server
 app.listen(PORT, () => {
