@@ -26,7 +26,7 @@ const UserTable = ({ data, refetchData }) => {
 
   const handleDelete = async (userId) => {
     try {
-      await axios.delete(`http://localhost:5000/${userId}`);
+      await axios.delete(`https://ocr-backend-kx3u.onrender.com/${userId}`);
       refetchData(); // Refetch data after deletion
     } catch (error) {
       console.error('Error deleting user:', error);

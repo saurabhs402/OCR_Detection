@@ -9,9 +9,7 @@ const App = () => {
   const [jsonData, setJsonData] = useState({
     "upload":"file"
   });
-  const [history, setHistory] = useState([]);
-  const [filterQuery, setFilterQuery] = useState("");
-
+ 
 
   
   async function  storeInDB(ocrText){
@@ -50,14 +48,14 @@ const App = () => {
 
   try{
    // Sending request to server
-   res=await axios.post("http://localhost:5000/users",{
+   res=await axios.post("https://ocr-backend-kx3u.onrender.com/users",{
     headers: {
         'Content-Type': 'application/json',
       },
     body:JSON.stringify({identification_number,name,last_name,date_of_birth,date_of_issue,date_of_expiry})
   })
  }catch(err){
-  console.log(err.response.data.error);
+  console.log(err);
  }
 
   // const res=;
