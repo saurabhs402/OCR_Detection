@@ -19,6 +19,10 @@ Open two terminal to run Server and Client separately.
 ```bash
     cd server
 ```
+   - Start the server
+```bash
+    nodemon dbConnect.js
+```
   
 (**Note**: The port number suggested by your nodemon require to update the PORT variable in config.js and you can find config.js inside the OCR_Detection/client
 /src/ )
