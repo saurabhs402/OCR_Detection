@@ -16,9 +16,14 @@ Client-Frontend and Server-Backend using MongoDB
 - nodemon dbConnect.js
 
   
-(Note: The port number suggested by your nodemon require to update the PORT variable in config.js and you can find config.js inside the OCR_Detection/client
+(**Note**: The port number suggested by your nodemon require to update the PORT variable in config.js and you can find config.js inside the OCR_Detection/client
 /src/ )
 
+# Render Frontend
+- cd client  
+- npm start  
+
+  (Now application starts Running)
 
 
 
