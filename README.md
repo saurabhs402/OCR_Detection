@@ -48,6 +48,9 @@ cd client
 ![Example Screenshot](screenshots/client1.jpg)  
 
   
+
+
+      
 **ID card values stored in Datasbe can perform delete also using delete button**
 
     
