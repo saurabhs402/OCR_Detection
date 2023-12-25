@@ -14,12 +14,13 @@ Open two terminal to run Server and Client separately.
 
 # Run the Server(Running at  http://localhost:${PORT})
 
-- First Terminal
+- **First Terminal Run Commands**
     - Change the directory
 ```bash
     cd server
 ```
-    - Start the server
+    -   Start the server
+    
 ```bash
     nodemon dbConnect.js
 ```
