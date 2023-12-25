@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start":"node dbConnect.js",
+    "start":"node dbConnect.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

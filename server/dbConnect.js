@@ -2,7 +2,7 @@ const dotenv=require("dotenv")
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors'); // Import the cors middleware
-dotenv.config({ path:'../.env'}) 
+dotenv.config({ path:'./.env'}) 
 
 const app = express();
 const PORT = process.env.PORT || 5000;
