@@ -29,9 +29,12 @@ Open two terminal to run Server and Client separately.
 /src/ )
 
 # Render Frontend
+ **Second Terminal Run Commands**  
+- Change the directory
 ```bash
 cd client
-```  
+```
+- Start the Client
 ```bash
  npm start
 ```  
