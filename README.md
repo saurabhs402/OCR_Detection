@@ -42,9 +42,15 @@ cd client
   (Now application starts Running)
 
 # Screenshots
-- Evauationg the THAI id card using above mentioned API and showing the result of parsed image
-![Example Screenshot](screenshots/client1.jpg)
-- ID card values stored in Datasbe can perform delete also using delete button 
+**Evauationg the THAI id card using above mentioned API and showing the result of parsed image**
+
+    
+![Example Screenshot](screenshots/client1.jpg)  
+
+  
+**ID card values stored in Datasbe can perform delete also using delete button**
+
+    
 ![Example Screenshot](screenshots/client2.jpg)
 
 
