@@ -1,6 +1,8 @@
 # OCR_Detection
 ID card parsing using Online OCR Space API
 https://ocr.space/ocrapi
+Free OCR API Endpoint (POST)
+https://api.ocr.space/parse/image
 
 
 # Clone Repository
