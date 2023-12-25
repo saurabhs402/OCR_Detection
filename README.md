@@ -19,7 +19,7 @@ Open two terminal to run Server and Client separately.
 ```bash
     cd server
 ```
-   - Start the server
+    - Start the server
 ```bash
     nodemon dbConnect.js
 ```
