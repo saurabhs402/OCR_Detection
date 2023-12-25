@@ -20,7 +20,11 @@ Open two terminal to run Server and Client separately.
  - Change the directory
 ```bash
     cd server
-```  
+```
+- Install the dependencies
+```bash
+npm i
+```
 - Start the server
     
 ```bash
@@ -35,6 +39,10 @@ Open two terminal to run Server and Client separately.
 - Change the directory
 ```bash
 cd client
+```
+- Install the dependencies
+```bash
+npm i
 ```
 - Start the Client
 ```bash
