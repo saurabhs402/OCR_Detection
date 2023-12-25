@@ -41,5 +41,10 @@ cd client
 
   (Now application starts Running)
 
+# Screenshots
+![Example Screenshot](screenshots/client1.jpg)
+![Example Screenshot](screenshots/client2.jpg)
+
+
 
 
