@@ -43,12 +43,6 @@ const App = () => {
     "date_of_expiry": splitText[5]
     }
  setJsonData(OcrResult);
- 
-    //   setTimeout(() => {
-    //   setJsonData(OcrResult);
-    //   // Add to history
-    //   setHistory([...history, "Success: OCR operation completed"]);
-    // }, 2000);
   const {identification_number,name,last_name,date_of_birth,date_of_issue,date_of_expiry}=OcrResult;
 
   console.log(identification_number+" "+date_of_birth);
@@ -107,19 +101,15 @@ const App = () => {
    
   };
 
-  const handleFilter = (e) => {
-    const query = e.target.value;
-    setFilterQuery(query);
-  };
 
-  const filteredHistory = history.filter((item) =>
-    item.toLowerCase().includes(filterQuery.toLowerCase())
-  );
+
+ 
 
   return (
    <div className="bg-gray-900 min-h-screen text-white  justify-center items-center">
-    <h1 className="text-3xl mt-8 text-center">ID Card Optical Character Recognition</h1>
-      <div className="container mx-auto py-0 flex flex-col items-center">
+   
+      <div className="container mx-auto py-2 flex flex-col items-center">
+         <h1 className="text-3xl mt-8 text-center">ID Card Optical Character Recognition</h1>
           <div className="flex flex-wrap w-full justify-center">
               <div className="w-full md:w-1/2 mb-0 md:mb-0 md:pr-2">
                     <FileUpload handleFileUpload={handleFileUpload} />
