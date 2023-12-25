@@ -33,22 +33,22 @@ const FileUpload = ({ handleFileUpload }) => {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <div className="max-w-md mx-auto p-6 bg-gray-900 text-white rounded-lg shadow-lg">
+      <div className="max-w-md mx-auto p-0 bg-gray-900 text-white rounded-lg shadow-lg">
         <input
           type="file"
           accept="image/png, image/jpeg"
           onChange={handleOnChange}
-          className="mb-4 bg-gray-800 text-white p-2 rounded"
+          className="mb-3 bg-gray-800 text-white p-0 rounded"
         />
         {imagePreview && (
-          <div className="mb-4">
+          <div className="mb-2">
             <img src={imagePreview} alt="Uploaded Preview" className="max-w-full h-auto" />
           </div>
         )}
-        {error && <div className="text-red-500 mb-4">{error}</div>}
+        {error && <div className="text-red-500 mb-2">{error}</div>}
         <button
           onClick={handleUpload}
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className="bg-blue-500 text-white px-4 py-0 rounded"
         >
           Evaluate
         </button>
