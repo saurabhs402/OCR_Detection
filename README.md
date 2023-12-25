@@ -9,12 +9,16 @@ https://api.ocr.space/parse/image
 - git clone https://github.com/saurabhs402/OCR_Detection.git
 
 # Folders
-Client-Frontend and Server-Backend using MongoDB
+Client-Frontend and Server-Backend using MongoDB  
+Open two terminal to run Server and Client separately.
 
 # Run the Server(Running at  http://localhost:${PORT})
+- First Terminal
+  -Change the directory
 ```bash
 cd server
 ```
+  - Start the server
 ```bash
  nodemon dbConnect.js
 ```
