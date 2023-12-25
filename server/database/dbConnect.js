@@ -5,7 +5,7 @@ const cors = require('cors'); // Import the cors middleware
 dotenv.config({ path:'../.env'}) 
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 
 
@@ -99,6 +99,10 @@ app.delete('/:id', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
+if(process.env.NODE_ENV=="production"){
+  app.use(express.static("client/build"));
+}
 
 
 // Start the server
