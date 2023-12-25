@@ -6,7 +6,9 @@ https://api.ocr.space/parse/image
 
 
 # Clone Repository
-- git clone https://github.com/saurabhs402/OCR_Detection.git
+```bash
+git clone https://github.com/saurabhs402/OCR_Detection.git
+```
 
 # Folders
 Client-Frontend and Server-Backend using MongoDB  
