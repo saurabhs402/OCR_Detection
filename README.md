@@ -12,16 +12,24 @@ https://api.ocr.space/parse/image
 Client-Frontend and Server-Backend using MongoDB
 
 # Run the Server(Running at  http://localhost:${PORT})
-- cd server
-- nodemon dbConnect.js
+```bash
+cd server
+```
+```bash
+ nodemon dbConnect.js
+```
 
   
 (**Note**: The port number suggested by your nodemon require to update the PORT variable in config.js and you can find config.js inside the OCR_Detection/client
 /src/ )
 
 # Render Frontend
-- cd client  
-- npm start  
+```bash
+cd client
+```  
+```bash
+ npm start
+```  
 
   (Now application starts Running)
 
