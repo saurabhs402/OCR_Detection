@@ -1,13 +1,14 @@
 import { useState,useEffect } from "react";
 import UserTable from "./UserTable";
 import axios from 'axios';
-const OcrHistory = ({ history }) => {
+import {PORT} from '../config'
+const OcrHistory = () => {
 
  const [userData, setUserData] = useState([]);
 
  const fetchData=()=>{
   // Fetch user data from your API endpoint
-    axios.get('http://localhost:5000/getUsers')
+    axios.get(`http://localhost:${PORT}/getUsers`)
       .then(response => setUserData(response.data))
       .catch(error => console.error('Error fetching user data:', error));
  }

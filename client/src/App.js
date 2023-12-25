@@ -4,6 +4,7 @@ import FileUpload from "./components/FileUpload";
 import OutputDisplay from "./components/OutputDisplay";
 import OcrHistory from "./components/OCRHistory";
 import axios from 'axios';
+import {PORT} from './config'
 
 const App = () => {
   const [jsonData, setJsonData] = useState({
@@ -48,7 +49,7 @@ const App = () => {
 
   try{
    // Sending request to server
-   res=await axios.post("http://localhost:5000/users",{
+   res=await axios.post(`http://localhost:${PORT}/users`,{
     headers: {
         'Content-Type': 'application/json',
       },

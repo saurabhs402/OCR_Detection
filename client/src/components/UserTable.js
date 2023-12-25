@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTable } from 'react-table';
 import axios from 'axios';
+import {PORT} from '../config'
 
 const UserTable = ({ data, refetchData }) => {
   const columns = React.useMemo(
@@ -26,7 +27,7 @@ const UserTable = ({ data, refetchData }) => {
 
   const handleDelete = async (userId) => {
     try {
-      await axios.delete(`http://localhost:5000/${userId}`);
+      await axios.delete(`http://localhost:${PORT}/${userId}`);
       refetchData(); // Refetch data after deletion
     } catch (error) {
       console.error('Error deleting user:', error);
