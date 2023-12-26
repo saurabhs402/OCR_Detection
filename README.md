@@ -2,7 +2,8 @@
 ID card parsing using Online OCR Space API
 https://ocr.space/ocrapi  
 Free OCR API Endpoint (POST)
-https://api.ocr.space/parse/image
+https://api.ocr.space/parse/image  
+Deployed Link:https://ocrfront-ml5t.onrender.com
 
 
 # Clone Repository
