@@ -7,7 +7,7 @@ https://api.ocr.space/parse/image
 
 # Clone Repository
 ```bash
-git clone https://github.com/saurabhs402/OCR_Detection.git
+git clone https://github.com/saurabhs402/OCR_Parsing.git
 ```
 
 # Folders
